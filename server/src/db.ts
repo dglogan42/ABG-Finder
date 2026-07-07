@@ -34,7 +34,8 @@ export function getDb(): Database.Database {
       lat REAL,
       lng REAL,
       is_online INTEGER DEFAULT 0,
-      last_active TEXT NOT NULL
+      last_active TEXT NOT NULL,
+      sauce TEXT
     );
 
     CREATE TABLE IF NOT EXISTS feed_posts (
@@ -110,5 +111,17 @@ export function getDb(): Database.Database {
     );
   `);
 
+  migrateProfilesTable(db);
+
   return db;
+}
+
+function migrateProfilesTable(database: Database.Database) {
+  const columns = database
+    .prepare("PRAGMA table_info(profiles)")
+    .all() as Array<{ name: string }>;
+
+  if (!columns.some((c) => c.name === "sauce")) {
+    database.exec("ALTER TABLE profiles ADD COLUMN sauce TEXT");
+  }
 }

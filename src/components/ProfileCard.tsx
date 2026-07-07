@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FlavorRatings } from "./FlavorRatings";
+import { Sauce } from "./Sauce";
 import type { Profile } from "../types";
 
 interface Props {
@@ -44,6 +45,8 @@ export function ProfileCard({ profile, onLike, onPass, onSuperlike, swipeAnim }:
         </div>
 
         <p className="profile-bio">{profile.bio}</p>
+
+        {profile.sauce && <Sauce sauce={profile.sauce} compact />}
 
         <div className="profile-vibes">
           {profile.vibes.map((v) => (

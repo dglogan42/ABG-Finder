@@ -26,6 +26,13 @@ export const seedProfiles: Profile[] = [
     distanceKm: 2.3,
     isOnline: true,
     lastActive: new Date().toISOString(),
+    sauce: {
+      platform: "tiktok",
+      label: "TikTok FYP — boba girlies",
+      sourceUrl: "https://tiktok.com/@miachen/video/7123456789",
+      spottedAt: new Date(Date.now() - 2 * 3600000).toISOString(),
+      context: "via #abg #nightmarket",
+    },
   },
   {
     id: "p2",
@@ -45,6 +52,13 @@ export const seedProfiles: Profile[] = [
     distanceKm: 8.1,
     isOnline: true,
     lastActive: new Date().toISOString(),
+    sauce: {
+      platform: "instagram",
+      label: "Instagram Explore — pilates girlies",
+      sourceUrl: "https://instagram.com/reel/jesspark.abg",
+      spottedAt: new Date(Date.now() - 5 * 3600000).toISOString(),
+      context: "via #kbeauty reel",
+    },
   },
   {
     id: "p3",
@@ -66,6 +80,13 @@ export const seedProfiles: Profile[] = [
     distanceKm: 15.4,
     isOnline: false,
     lastActive: new Date(Date.now() - 3600000).toISOString(),
+    sauce: {
+      platform: "x",
+      label: "X timeline — SF nightlife thread",
+      sourceUrl: "https://x.com/ashnguyen/status/1789012345678901234",
+      spottedAt: new Date(Date.now() - 8 * 3600000).toISOString(),
+      context: "quoted in ABG night-out post",
+    },
   },
   {
     id: "p4",
@@ -85,6 +106,13 @@ export const seedProfiles: Profile[] = [
     distanceKm: 45.2,
     isOnline: true,
     lastActive: new Date().toISOString(),
+    sauce: {
+      platform: "tiktok",
+      label: "TikTok search — K-town nails",
+      sourceUrl: "https://tiktok.com/@sophiekim/video/7234567890",
+      spottedAt: new Date(Date.now() - 1 * 3600000).toISOString(),
+      context: "via #ktown #nails",
+    },
   },
   {
     id: "p5",
@@ -105,6 +133,13 @@ export const seedProfiles: Profile[] = [
     distanceKm: 32.7,
     isOnline: false,
     lastActive: new Date(Date.now() - 7200000).toISOString(),
+    sauce: {
+      platform: "instagram",
+      label: "Instagram suggested — Houston baddies",
+      sourceUrl: "https://instagram.com/p/lunatran.htx",
+      spottedAt: new Date(Date.now() - 12 * 3600000).toISOString(),
+      context: "mutual follow graph",
+    },
   },
   {
     id: "p6",
@@ -124,6 +159,13 @@ export const seedProfiles: Profile[] = [
     distanceKm: 28.9,
     isOnline: true,
     lastActive: new Date().toISOString(),
+    sauce: {
+      platform: "facebook",
+      label: "Facebook group — PNW Asian creatives",
+      sourceUrl: "https://facebook.com/groups/pnwabg/posts/123456",
+      spottedAt: new Date(Date.now() - 24 * 3600000).toISOString(),
+      context: "shared in outfit check thread",
+    },
   },
   {
     id: "p7",
@@ -145,6 +187,13 @@ export const seedProfiles: Profile[] = [
     distanceKm: 55.0,
     isOnline: true,
     lastActive: new Date().toISOString(),
+    sauce: {
+      platform: "tiktok",
+      label: "TikTok FYP — Vegas pool party",
+      sourceUrl: "https://tiktok.com/@rinaokada/video/7345678901",
+      spottedAt: new Date(Date.now() - 30 * 60000).toISOString(),
+      context: "via #vegas #dayclub",
+    },
   },
   {
     id: "p8",
@@ -164,5 +213,12 @@ export const seedProfiles: Profile[] = [
     distanceKm: 62.1,
     isOnline: false,
     lastActive: new Date(Date.now() - 86400000).toISOString(),
+    sauce: {
+      platform: "instagram",
+      label: "Instagram Reels — East Coast study baddies",
+      sourceUrl: "https://instagram.com/reel/emilyliu.abg",
+      spottedAt: new Date(Date.now() - 3 * 86400000).toISOString(),
+      context: "via #harvardadjacent",
+    },
   },
 ];

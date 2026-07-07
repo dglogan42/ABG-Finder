@@ -5,6 +5,7 @@ ABG (Asian Baddie Girl) Friend Finder is a mobile-first social discovery app for
 ## Features
 
 - **Discover** — Swipe to like, pass, or super-like ABG profiles with compatibility scores and shared vibe matching
+- **The Sauce** — See which social platform each baddie was spotted on (TikTok FYP, Instagram Explore, X, Facebook)
 - **Social Feed** — Aggregated cross-platform feed with per-platform filters
 - **Matches** — View mutual connections ranked by vibe compatibility
 - **Connect** — Link Instagram, Facebook, X, and TikTok via OAuth (demo mode works without API keys)
@@ -41,7 +42,7 @@ npm install
 npm run db:seed
 ```
 
-Seeds 8 demo profiles, 12 feed posts, and community flavor ratings.
+Seeds 8 demo profiles with social “sauce” metadata, 12 feed posts, and community flavor ratings.
 
 ### Development
 

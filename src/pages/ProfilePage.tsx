@@ -4,6 +4,7 @@ import { fetchProfile } from "../api/discover";
 import { fetchProfileFeed } from "../api/feed";
 import { FeedPostCard } from "../components/FeedPostCard";
 import { FlavorRatings } from "../components/FlavorRatings";
+import { Sauce } from "../components/Sauce";
 import type { FeedPost, Profile } from "../types";
 
 export function ProfilePage() {
@@ -67,6 +68,8 @@ export function ProfilePage() {
           )}
 
           <p className="profile-detail-bio">{profile.bio}</p>
+
+          {profile.sauce && <Sauce sauce={profile.sauce} />}
 
           <FlavorRatings profileId={profile.id} />
 

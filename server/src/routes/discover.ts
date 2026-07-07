@@ -4,30 +4,12 @@ import {
   computeCompatibility,
   rankProfiles,
 } from "../services/feedAggregator.js";
-import type { DiscoveryFilters, Profile } from "../types.js";
+import type { DiscoveryFilters } from "../types.js";
+import { rowToProfile } from "../profileMapper.js";
 
 export const discoverRouter = Router();
 
 const USER_VIBES = ["baddie", "nightlife", "fashion", "foodie"];
-
-function rowToProfile(row: Record<string, unknown>): Profile {
-  return {
-    id: row.id as string,
-    name: row.name as string,
-    age: row.age as number,
-    city: row.city as string,
-    bio: row.bio as string,
-    avatar: row.avatar as string,
-    coverImage: row.cover_image as string,
-    vibes: JSON.parse(row.vibes as string),
-    interests: JSON.parse(row.interests as string),
-    socials: JSON.parse(row.socials as string),
-    abgScore: row.abg_score as number,
-    distanceKm: row.distance_km as number | undefined,
-    isOnline: !!(row.is_online as number),
-    lastActive: row.last_active as string,
-  };
-}
 
 discoverRouter.get("/", (req, res) => {
   const db = getDb();

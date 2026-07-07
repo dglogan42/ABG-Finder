@@ -16,18 +16,38 @@ const coords: Record<string, [number, number]> = {
 function seed() {
   const db = getDb();
 
+  const updateSauce = db.prepare(`
+    UPDATE profiles SET sauce = ? WHERE id = ?
+  `);
+
   const profileCount = db
     .prepare("SELECT COUNT(*) as count FROM profiles")
     .get() as { count: number };
 
   if (profileCount.count > 0) {
-    console.log("Database already seeded, skipping.");
+    const missingSauce = db
+      .prepare("SELECT COUNT(*) as count FROM profiles WHERE sauce IS NULL OR sauce = ''")
+      .get() as { count: number };
+
+    if (missingSauce.count > 0) {
+      const tx = db.transaction(() => {
+        for (const p of seedProfiles) {
+          if (p.sauce) {
+            updateSauce.run(JSON.stringify(p.sauce), p.id);
+          }
+        }
+      });
+      tx();
+      console.log(`Backfilled sauce for ${missingSauce.count} profiles.`);
+    } else {
+      console.log("Database already seeded, skipping.");
+    }
     return;
   }
 
   const insertProfile = db.prepare(`
-    INSERT INTO profiles (id, name, age, city, bio, avatar, cover_image, vibes, interests, socials, abg_score, lat, lng, is_online, last_active)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO profiles (id, name, age, city, bio, avatar, cover_image, vibes, interests, socials, abg_score, lat, lng, is_online, last_active, sauce)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   const insertPost = db.prepare(`
@@ -53,7 +73,8 @@ function seed() {
         lat,
         lng,
         p.isOnline ? 1 : 0,
-        p.lastActive
+        p.lastActive,
+        p.sauce ? JSON.stringify(p.sauce) : null
       );
     }
 

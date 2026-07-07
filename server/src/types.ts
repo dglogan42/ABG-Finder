@@ -22,6 +22,14 @@ export interface FeedPost {
   hashtags: string[];
 }
 
+export interface ProfileSauce {
+  platform: SocialPlatform;
+  label: string;
+  sourceUrl?: string;
+  spottedAt: string;
+  context?: string;
+}
+
 export interface Profile {
   id: string;
   name: string;
@@ -37,6 +45,7 @@ export interface Profile {
   distanceKm?: number;
   isOnline: boolean;
   lastActive: string;
+  sauce?: ProfileSauce;
 }
 
 export interface Match {

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchMatches } from "../api/matches";
+import { Sauce } from "../components/Sauce";
 import type { Match } from "../types";
 
 export function MatchesPage() {
@@ -44,6 +45,11 @@ export function MatchesPage() {
               <div className="match-card-info">
                 <h3>{m.profile.name}</h3>
                 <p>{m.compatibility}% match</p>
+                {m.profile.sauce && (
+                  <div className="match-sauce">
+                    <Sauce sauce={m.profile.sauce} compact />
+                  </div>
+                )}
                 <div className="match-vibes">
                   {m.sharedVibes.slice(0, 3).map((v) => (
                     <span key={v} className="badge">{v}</span>
@@ -69,6 +75,7 @@ export function MatchesPage() {
         }
         .match-card h3 { font-size: 1rem; font-weight: 600; }
         .match-card p { font-size: 0.8rem; color: var(--pink-light); margin: 0.15rem 0 0.4rem; }
+        .match-sauce { margin: 0.35rem 0 0.5rem; }
         .match-vibes { display: flex; gap: 0.3rem; flex-wrap: wrap; }
       `}</style>
     </div>

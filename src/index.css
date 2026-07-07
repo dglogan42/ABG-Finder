@@ -165,6 +165,100 @@ button {
   border-color: rgba(24, 119, 242, 0.3);
 }
 
+.sauce {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+a.sauce:hover {
+  border-color: rgba(255, 61, 143, 0.35);
+  transform: translateY(-1px);
+}
+
+.sauce-compact {
+  padding: 0.55rem 0.7rem;
+  margin-bottom: 0.75rem;
+}
+
+.sauce-jar {
+  font-size: 1.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sauce-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.sauce-kicker {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.sauce-headline {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.sauce-compact .sauce-headline {
+  font-size: 0.82rem;
+}
+
+.sauce-detail,
+.sauce-context,
+.sauce-time {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+.sauce-context {
+  color: var(--pink-light);
+}
+
+.sauce-link {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--pink-light);
+  align-self: center;
+  flex-shrink: 0;
+}
+
+.sauce-instagram {
+  border-color: rgba(225, 48, 108, 0.25);
+  background: rgba(225, 48, 108, 0.08);
+}
+
+.sauce-tiktok {
+  border-color: rgba(0, 242, 234, 0.2);
+  background: rgba(0, 242, 234, 0.06);
+}
+
+.sauce-x {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.sauce-facebook {
+  border-color: rgba(24, 119, 242, 0.25);
+  background: rgba(24, 119, 242, 0.08);
+}
+
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);

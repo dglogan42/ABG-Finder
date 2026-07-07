@@ -59,6 +59,14 @@ export interface FlavorRatingsSummary {
   dimensions: DimensionSummary[];
 }
 
+export interface ProfileSauce {
+  platform: SocialPlatform;
+  label: string;
+  sourceUrl?: string;
+  spottedAt: string;
+  context?: string;
+}
+
 export interface Profile {
   id: string;
   name: string;
@@ -74,6 +82,7 @@ export interface Profile {
   distanceKm?: number;
   isOnline: boolean;
   lastActive: string;
+  sauce?: ProfileSauce;
   compatibility?: number;
   sharedVibes?: string[];
   flavorRatings?: FlavorRatingsSummary;
