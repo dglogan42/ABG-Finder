@@ -1,0 +1,42 @@
+{
+  "name": "abg-friend-finder",
+  "private": true,
+  "version": "1.0.0",
+  "description": "ABG (Asian Baddie Girl) friend finder — connect social feeds and discover your vibe tribe",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n client,api -c magenta,cyan \"npm run dev:client\" \"npm run dev:server\"",
+    "dev:client": "vite",
+    "dev:server": "tsx watch server/src/index.ts",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "tsc -b && vite build",
+    "build:server": "tsc -p server/tsconfig.json",
+    "start": "node server/dist/index.js",
+    "db:seed": "tsx server/src/seed.ts",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.80.7",
+    "better-sqlite3": "^11.10.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.2",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.15.32",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.5.2",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.20.3",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}
