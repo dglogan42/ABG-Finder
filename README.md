@@ -83,6 +83,38 @@ cp .env.example .env
 
 Without API keys, the **Connect** tab uses demo mode to simulate linked accounts.
 
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Discover — swipe through ABG profiles |
+| `/feed` | Aggregated social feed with platform filters |
+| `/matches` | Mutual connections ranked by compatibility |
+| `/connect` | Link Instagram, TikTok, X, and Facebook |
+| `/profile/:id` | Full profile, sauce, flavor ratings, and posts |
+
+## The Sauce
+
+**The Sauce** is the origin story for each baddie — which social platform they were spotted on and how they entered your feed.
+
+Every profile can include sauce metadata:
+
+| Field | Description |
+|-------|-------------|
+| `platform` | `instagram`, `tiktok`, `x`, or `facebook` |
+| `label` | Human-readable source (e.g. "TikTok FYP — Vegas pool party") |
+| `sourceUrl` | Optional link to the post, reel, or thread |
+| `spottedAt` | When the profile was discovered |
+| `context` | Optional extra detail (hashtag, mutual graph, group thread) |
+
+The `Sauce` component surfaces this on:
+
+- **Discover cards** — compact badge under the bio
+- **Profile pages** — full card with source link and spotted time
+- **Matches** — compact reminder of where you first found them
+
+Demo seed data assigns each of the 8 profiles a different platform source. Re-run `npm run db:seed` to backfill sauce on an existing database.
+
 ## API Endpoints
 
 | Method | Path | Description |
@@ -104,14 +136,15 @@ Without API keys, the **Connect** tab uses demo mode to simulate linked accounts
 abg-friend-finder/
 ├── src/                  # React frontend
 │   ├── api/              # API client modules
-│   ├── components/       # UI components
+│   ├── components/       # UI components (ProfileCard, Sauce, FlavorRatings, …)
 │   ├── pages/            # Route pages
-│   └── types/            # Shared TypeScript types
+│   └── types/            # Shared TypeScript types (Profile, ProfileSauce, …)
 ├── server/
 │   ├── src/
 │   │   ├── routes/       # Express route handlers
 │   │   ├── services/     # Business logic
-│   │   └── seed/         # Demo data
+│   │   ├── profileMapper.ts  # DB row → Profile (incl. sauce)
+│   │   └── seed/         # Demo profiles, feed posts, sauce data
 │   └── data/             # SQLite database (gitignored)
 ├── public/               # Static assets
 └── dist/                 # Production build output
@@ -124,7 +157,7 @@ abg-friend-finder/
 | `npm run dev` | Start frontend + API in watch mode |
 | `npm run build` | Build client and server for production |
 | `npm start` | Run production server |
-| `npm run db:seed` | Seed SQLite with demo data |
+| `npm run db:seed` | Seed SQLite with demo data; backfills sauce on existing DBs |
 | `npm run preview` | Preview production frontend build |
 
 ## License
