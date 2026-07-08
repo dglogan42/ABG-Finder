@@ -3,15 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="ABG Friend Finder — connect your social feeds and discover your vibe tribe" />
     <title>ABG Friend Finder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+      <meta name="theme-color" content="#ff69b4" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ABG Finder" />
+    <meta name="application-name" content="ABG Finder" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/icon-180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+      <link rel="stylesheet" href="pwa-install.css" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+  
+    <div class="install-prompt" id="installPrompt" hidden role="dialog" aria-label="Install app">
+      <div class="install-prompt__body">
+        <strong>Install this app</strong>
+        <p data-install-text>Add to your home screen for offline use on any device.</p>
+      </div>
+      <div class="install-prompt__actions">
+        <button type="button" data-install hidden>Install</button>
+        <button type="button" data-dismiss>Not now</button>
+      </div>
+    </div>
+
+      <script type="module" src="install.js"></script>
   </body>
 </html>
